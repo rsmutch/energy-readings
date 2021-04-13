@@ -6,7 +6,7 @@
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
-  "name": "d55-tech-test",
+  "name": "energy-readings",
   "version": "1.0.0",
   "main": "knexfile.js",
   "scripts": {
