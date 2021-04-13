@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "knex": "^0.95.4",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "name": "d55-tech-test",
+  "version": "1.0.0",
+  "main": "knexfile.js",
+  "scripts": {
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "test-migrate-make": "NODE_ENV=test knex migrate:make",
+    "test-migrate-latest": "NODE_ENV=test knex migrate:latest",
+    "test-migrate-rollback": "NODE_ENV=test knex migrate:rollback",
+    "migrate-make": "knex migrate:make",
+    "migrate-latest": "knex migrate:latest",
+    "migrate-rollback": "knex migrate:rollback"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
