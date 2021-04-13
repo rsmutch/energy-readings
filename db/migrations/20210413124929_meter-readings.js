@@ -5,7 +5,7 @@ exports.up = function (knex) {
       .text('account_id')
       .references('accounts.account_id')
       .notNullable();
-    meternotNullableReadingsTable.integer('reading').notNullable();
+    meterReadingsTable.integer('reading').notNullable();
   });
 };
 
