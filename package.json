@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "knex": "^0.95.4",
+    "knex-seed-file": "^1.0.2",
     "pg": "^8.5.1"
   },
   "devDependencies": {
@@ -16,7 +17,9 @@
     "test-migrate-rollback": "NODE_ENV=test knex migrate:rollback",
     "migrate-make": "knex migrate:make",
     "migrate-latest": "knex migrate:latest",
-    "migrate-rollback": "knex migrate:rollback"
+    "migrate-rollback": "knex migrate:rollback",
+    "seed-dev": "knex seed:run",
+    "seed-test": "NODE_ENV=test knex seed:run"
   },
   "keywords": [],
   "author": "",
