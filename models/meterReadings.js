@@ -3,15 +3,6 @@ const fs = require('fs');
 const csv = require('fast-csv');
 const { validateCsv } = require('../utilities/csvValidation');
 
-exports.getAllMeterReadings = () => {
-  return connection
-    .select('meter_reading_id')
-    .from('meter_readings')
-    .then((readings) => {
-      return readings;
-    });
-};
-
 exports.addMeterReadings = ({ path }) =>
   new Promise((resolve) => {
     let output = {};
