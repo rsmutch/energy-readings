@@ -34,3 +34,17 @@ exports.addMeterReadings = ({ path }) =>
         });
       });
   });
+
+exports.removeMeterReadingsById = (readingId) => {
+  console.log(readingId);
+  return connection
+    .from('meter_readings')
+    .where('meter_reading_id', readingId)
+    .del()
+    .then((deletedItems) => {
+      if (deletedItems === 0) {
+        return Promise.reject({ status: 404, msg: 'Meter reading not found' });
+      }
+      return deletedItems;
+    });
+};
