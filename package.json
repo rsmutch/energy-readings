@@ -14,7 +14,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon listen.js",
+    "start": "node listen.js",
     "setup-dbs": "psql -f ./db/setup.sql",
     "test-migrate-make": "NODE_ENV=test knex migrate:make",
     "test-migrate-latest": "NODE_ENV=test knex migrate:latest",
