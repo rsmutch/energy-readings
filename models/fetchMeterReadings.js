@@ -1,10 +1,11 @@
 const connection = require('../db/connection');
 
-exports.fetchAllMeterReadings = () => {
+exports.fetchAllMeterReadings = (allFields) => {
   return connection
-    .select('meter_reading_id')
+    .select('*')
     .from('meter_readings')
     .then((readings) => {
+      // console.log(readings);
       return readings;
     });
 };

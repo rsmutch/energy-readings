@@ -12,7 +12,7 @@ exports.postMeterReadings = (req, res, next) => {
 };
 
 exports.getAllMeterReadings = (req, res, next) => {
-  fetchAllMeterReadings()
+  fetchAllMeterReadings(true)
     .then((readings) => {
       res.status(200).send({ readings });
     })
