@@ -1,6 +1,6 @@
 const connection = require('../db/connection');
 
-exports.getAllMeterReadings = () => {
+exports.fetchAllMeterReadings = () => {
   return connection
     .select('meter_reading_id')
     .from('meter_readings')

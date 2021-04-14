@@ -1,3 +1,4 @@
+const { fetchAllMeterReadings } = require('../models/fetchMeterReadings');
 const { addMeterReadings } = require('../models/meterReadings');
 
 exports.postMeterReadings = (req, res, next) => {
@@ -7,5 +8,15 @@ exports.postMeterReadings = (req, res, next) => {
     })
     .catch((err) => {
       res.status(409).send(err.report);
+    });
+};
+
+exports.getAllMeterReadings = (req, res, next) => {
+  fetchAllMeterReadings()
+    .then((readings) => {
+      res.status(200).send({ readings });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };

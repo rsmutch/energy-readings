@@ -1,6 +1,6 @@
 const connection = require('../db/connection');
 
-exports.getAllAccounts = () => {
+exports.fetchAllAccounts = () => {
   return connection
     .select('account_id')
     .from('accounts')

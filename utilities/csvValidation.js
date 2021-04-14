@@ -1,10 +1,10 @@
-const { getAllAccounts } = require('../models/accounts');
-const { getAllMeterReadings } = require('../models/getMeterReadings');
+const { fetchAllAccounts } = require('../models/accounts');
+const { fetchAllMeterReadings } = require('../models/fetchMeterReadings');
 
 exports.validateCsv = (data) => {
-  const accounts = getAllAccounts();
-  const readings = getAllMeterReadings();
-  getAllMeterReadings;
+  const accounts = fetchAllAccounts();
+  const readings = fetchAllMeterReadings();
+  fetchAllMeterReadings;
   return Promise.all([accounts, readings]).then(([accounts, readings]) => {
     const dataRows = data.slice(1, data.length);
     const validRows = [];
