@@ -1,25 +1,22 @@
-module.exports = {
-  development: {
-    client: 'pg',
-    connection: 'postgres://localhost/energydb',
-    migrations: {
-      directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds'
-    },
-    useNullAsDefault: true
-  },
+const { DB_URL } = process.env;
+const ENV = process.env.NODE_ENV || 'development';
 
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
-    migrations: {
-      directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds/production'
-    },
-    useNullAsDefault: true
+const baseConfig = {
+  client: 'pg',
+  migrations: {
+    directory: './db/migrations'
+  },
+  seeds: {
+    directory: './db/seeds'
   }
 };
+
+const customConfig = {
+  development: {
+    connection: {
+      database: 'energydb'
+    }
+  }
+};
+
+module.exports = { ...customConfig[ENV], ...baseConfig };
