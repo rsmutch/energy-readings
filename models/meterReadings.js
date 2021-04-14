@@ -1,18 +1,46 @@
 const connection = require('../db/connection');
 const fs = require('fs');
 const csv = require('fast-csv');
+const { validateCsv } = require('../utilities/csvValidation');
 
 exports.addMeterReadings = ({ path }) => {
+  let successfulEntries = 0;
   let fileRows = [];
   csv
     .parseFile(path)
     .on('data', (data) => {
-      fileRows.push(data); // push each row
+      fileRows.push(data);
     })
     .on('end', () => {
-      console.log(fileRows);
-      fs.unlinkSync(path); // remove temp file
-      //process "fileRows" and respond
-      console.log('removed');
+      fs.unlinkSync(path);
+      const validRows = validateCsv(fileRows);
+      console.log(validRows);
+      // const { data, successful, failed } = validRows;
+      //   return connection
+      //     .insert({
+      //       meter_reading_id,
+      //       account_id,
+      //       reading
+      //     })
+      //     .into('meter_readings')
+      //     .returning('*')
+      //     .then((readingsData) => {
+      //       successfulEntries++;
+      //     });
+      // });
+      // data.forEach((meterReading) => {
+      //   const [meter_reading_id, account_id, reading] = meterReading;
+      //   return connection
+      //     .insert({
+      //       meter_reading_id,
+      //       account_id,
+      //       reading
+      //     })
+      //     .into('meter_readings')
+      //     .returning('*')
+      //     .then((readingsData) => {
+      //       successfulEntries++;
+      //     });
+      // });
     });
 };
