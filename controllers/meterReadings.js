@@ -6,6 +6,6 @@ exports.postMeterReadings = (req, res, next) => {
       res.status(201).send({ readings });
     })
     .catch((err) => {
-      console.log(err);
+      res.status(409).send(err.report);
     });
 };

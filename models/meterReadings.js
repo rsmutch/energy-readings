@@ -4,7 +4,7 @@ const csv = require('fast-csv');
 const { validateCsv } = require('../utilities/csvValidation');
 
 exports.addMeterReadings = ({ path }) =>
-  new Promise((resolve) => {
+  new Promise((resolve, reject) => {
     let output = {};
     let fileRows = [];
     csv
@@ -19,14 +19,18 @@ exports.addMeterReadings = ({ path }) =>
             successful: validRows.successful,
             failed: validRows.failed
           };
-          return connection
-            .insert(validRows.data)
-            .into('meter_readings')
-            .returning('*')
-            .then((readingsData) => {
-              output.data = readingsData;
-              resolve(output);
-            });
+          if (validRows.successful < 1) {
+            reject(output);
+          } else {
+            return connection
+              .insert(validRows.data)
+              .into('meter_readings')
+              .returning('*')
+              .then((readingsData) => {
+                output.data = readingsData;
+                resolve(output);
+              });
+          }
         });
       });
   });
