@@ -1,6 +1,12 @@
 const meterReadingsRouter = require('express').Router();
-const { getAllMeterReadings } = require('../controllers/meterReadings');
+const {
+  getAllMeterReadings,
+  deleteAllMeterReadings
+} = require('../controllers/meterReadings');
 
-meterReadingsRouter.route('/').get(getAllMeterReadings);
+meterReadingsRouter
+  .route('/')
+  .get(getAllMeterReadings)
+  .delete(deleteAllMeterReadings);
 
 module.exports = { meterReadingsRouter };

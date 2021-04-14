@@ -20,3 +20,14 @@ exports.getAllMeterReadings = (req, res, next) => {
       console.log(err);
     });
 };
+
+exports.deleteAllMeterReadings = (req, res, next) => {
+  console.log('inside controller');
+  // fetchAllMeterReadings(true)
+  //   .then((readings) => {
+  //     res.status(200).send({ readings });
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+};
