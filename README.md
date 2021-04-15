@@ -21,27 +21,27 @@ npm run seed-dev
 npm run start
 ```
 
-1 - Install dependencies
+### 1 - Install dependencies
 ```
 npm install
 ```
 
-2 - Setup Database
+### 2 - Setup Database
 ```
 npm run setup-dbs
 ```
 
-3 - Migrations
+### 3 - Migrations
 ```
 npm run migrate-latest
 ```
 
-4 - Seed Table
+### 4 - Seed Table
 ```
 npm run seed-dev
 ```
 
-5 - Start Server
+### 5 - Start Server
 ```
 npm run start
 ```
@@ -50,7 +50,7 @@ npm run start
 ```
 GET http://localhost:9090/meter-readings/
 
-// Response:
+// Successful Response:
 Status Code 200
 {
   "readings": [
@@ -68,7 +68,7 @@ Status Code 200
 ```
 DELETE http://localhost:9090/meter-readings/:meter_reading_id
 
-// Response:
+// Successful Response:
 Status Code 204
 ```
 ```
