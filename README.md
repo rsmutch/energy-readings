@@ -46,7 +46,7 @@ npm run seed-dev
 npm run start
 ```
 
-Endpoints Available
+## Endpoints Available
 ```
 GET http://localhost:9090/meter-readings/
 
@@ -74,7 +74,7 @@ Status Code 204
 ```
 POST http://localhost:9090/meter-readings-uploads/
 
-// Response: 
+// Successful Response: 
 Status Code 201
 {
   "readings": {
@@ -93,6 +93,13 @@ Status Code 201
         "account_id": "955e6866-18f8-4746-8dbb-028ca1ed213a",
         "reading": 6695
       },...
+
+// Unsuccessful Response (0 submissions were successful):
+Status Code 409
+{
+  "successful": 0,
+  "failed": 1000
+}
 ```
 
 
